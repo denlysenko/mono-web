@@ -19,6 +19,13 @@ body {
   width: 100%;
 }
 
+h3 {
+  width: 50%;
+  font-size: $font-size-h3;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
 .container {
   position: relative;
   width: 100%;
@@ -108,11 +115,31 @@ body {
   }
 }
 
+#about {
+  opacity: 0;
+  transition: opacity 2s;
+
+  &.selected {
+    opacity: 1;
+  }
+}
+
+.hidden {
+  visibility: hidden;
+}
+
 nav {
   overflow: hidden;
   position: absolute;
   top: 50%;
   margin-top: -49px;
+  transition: top .4s;
+  z-index: 2;
+
+  &.top {
+    top: 17px;
+    margin-top: 0;
+  }
 
   > a {
     display: block;
