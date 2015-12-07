@@ -1,0 +1,32 @@
+#gallery {
+	height: 480px;
+	overflow: hidden;
+
+	ul.list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+		transition: all .5s;
+
+		li {
+			position: relative;
+			float: left;
+			width: 235px;
+			height: 235px;
+			margin: 5px 5px 0 0;
+			border: 1px solid #fff;
+
+			&:before {
+				content: '';
+				display: block;
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: rgba(0,0,0,.3);
+			}
+		}
+	}
+}
