@@ -24,9 +24,9 @@
     <![endif]-->
 
     <video class="bg-video" muted autoplay preload loop>
-     <!-- <source src="video/duel.ogv" type='video/ogg; codecs="theora, vorbis"'> -->
-     <source src="video/Iron_Maiden-The_Trooper.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
-     <!-- <source src="video/duel.webm" type='video/webm; codecs="vp8, vorbis"'> -->
+     <source src="video/39mb.ogg" type='video/ogg; codecs="theora, vorbis"'> 
+     <source src="video/39mb.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+     <source src="video/39mb.webm" type='video/webm; codecs="vp8, vorbis"'>
     </video>
     <div class="container">
       <div class="content">
@@ -91,6 +91,13 @@
     <script src="scripts/gallery.js"></script>
     <!-- build:js scripts/main.js -->
     <script src="scripts/main.js"></script>
+    <script src="scripts/jquery.particleground.min.js"></script>
+    <script>
+    $('body').particleground({
+      dotColor: 'rgba(255,255,255,.3)',
+      lineColor: 'rgba(255,255,255,.3)'
+    });
+    </script>
     <!-- endbuild -->
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->

@@ -45,6 +45,14 @@
 			$current.removeClass('current');
 			$target.addClass('current');
 		});
+		this.$elem.on('mousewheel', function(e) {
+			var $current = self.$indicators.find('.current');
+			if(e.originalEvent.wheelDelta > 0) {
+				$current.prev().find('a').click();
+			} else {
+				$current.next().find('a').click();
+			}
+		});
 	};
 
 	Gallery.prototype.init = function() {
