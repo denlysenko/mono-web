@@ -46,8 +46,25 @@
 		this.$elem.find('.list:first').addClass('current');
 	};
 
+	Gallery.prototype.expand = function(elem) {
+		var $elem = $(elem),
+				src,
+				$backdrop = $('<div class="backdrop">'),
+				$container;
+
+		src = $elem.is('[data-src]') ? $elem.attr('data-src') : $elem.find('img').attr('src').replace('thumbs', 'photos');
+		$container = $('<div class="fullscreen"><img src="' + src + '"><a href="" class="btn prev"></a><a href="" class="btn next"></a></div>');
+		this.$elem.append($backdrop);
+		this.$elem.append($container);
+		$backdrop.on('click', function() {
+			$container.remove();
+			$backdrop.remove();
+		});
+	};
+
 	Gallery.prototype.addListeners = function() {
 		var self = this;
+		// indicator click handler
 		this.$indicators.on('click', 'a', function(e) {
 			e.preventDefault();
 			var $target = $(this).closest('li');
@@ -60,6 +77,7 @@
 			$current.removeClass('current');
 			$target.addClass('current');
 		});
+		// mousewheel handler
 		this.$elem.on('mousewheel', function(e) {
 			var $current = self.$indicators.find('.current');
 			if(e.originalEvent.wheelDelta > 0) {
@@ -67,6 +85,11 @@
 			} else {
 				$current.next().find('a').click();
 			}
+		});
+		// thumb click handler
+		this.$elem.find('.list > li').on('click', function(e) {
+			e.preventDefault();
+			self.expand(this);
 		});
 	};
 
@@ -79,6 +102,8 @@
 	window.onload = function() {
 		var photoGallery = new Gallery('#gallery', 8);
 		photoGallery.init();
+		var videoGallery = new Gallery('#video', 2);
+		videoGallery.init();
 	};
 
 	
