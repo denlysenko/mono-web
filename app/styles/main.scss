@@ -39,16 +39,16 @@ h3 {
   background-color: rgba(0,0,0,.48);
   margin: 0;
 
-  &:after,
-  &:before {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-  }
+  // &:after,
+  // &:before {
+  //   content: '';
+  //   display: block;
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   bottom: 0;
+  //   right: 0;
+  // }
 
   // &:after {
   //   background: repeating-linear-gradient(-45deg, rgba(0,0,0,.17) 1px, rgba(0,0,0,.17) 2px, transparent 3px, transparent 4px);
@@ -120,7 +120,7 @@ h3 {
 #about, #gallery {
   position: absolute;
   opacity: 0;
-  transition: opacity 1s;
+  transition: opacity .6s;
 
   &.selected {
     opacity: 1;
@@ -157,7 +157,7 @@ nav {
 
     &:hover,
     &.active {
-       border-image: linear-gradient(to right, #f38384 0%, #f8e269 100%);
+      border-image: linear-gradient(to right, #f38384 0%, #f8e269 100%);
       border-image-slice: 1;
     }
 
@@ -248,12 +248,13 @@ footer {
 }
 
 .indicators {
-  position: fixed;
-  right: 40px;
+  position: absolute;
+  right: 0;
   top: 50%;
   list-style: none;
-  margin:  -60px 0 0;
+  margin:  -40px 0 0;
   padding: 0;
+  z-index: 10000;
 
   li {
     margin-bottom: 15px;
