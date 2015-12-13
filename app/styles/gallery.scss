@@ -1,7 +1,25 @@
 #gallery {
 	width: 100%;
 	height: 487px;
-	overflow: hidden;	
+	//overflow: hidden;
+
+	ul.list {
+
+		li {
+			position: relative;
+			float: left;
+			width: 235px;
+			height: 235px;
+			margin: 7px 7px 0 0;
+			border: 1px solid #fff;
+			cursor: pointer;
+
+			&:hover {
+				border-image: linear-gradient(to right, #f38384 0%, #f8e269 100%);
+	    	border-image-slice: 1;
+			}
+		}
+	}	
 }
 
 ul.list {
@@ -19,21 +37,6 @@ ul.list {
 		opacity: 1;
 		z-index: 2;
 	}
-
-	li {
-		position: relative;
-		float: left;
-		width: 235px;
-		height: 235px;
-		margin: 7px 7px 0 0;
-		border: 1px solid #fff;
-		cursor: pointer;
-
-		&:hover {
-			border-image: linear-gradient(to right, #f38384 0%, #f8e269 100%);
-    	border-image-slice: 1;
-		}
-	}
 }
 
 .wrapper {
@@ -48,14 +51,14 @@ ul.list {
 	width: 100%;
 	height: 100%;
 	background: rgba(0,0,0,.6);
-	z-index: 2;
+	z-index: 3;
 }
 
 .fullscreen {
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 100%;
+	width: 961px;
 	height: 100%;
 	border: 1px solid #fff;
 	z-index: 5;
@@ -75,17 +78,23 @@ ul.list {
 		background: url(../images/social_sprite.png) no-repeat;
 	}
 	.prev {
-		left: -80px;
-		background-position: 0 -40px;
+		left: -100px;
+		background-position: -270px 0;
+
+		&:hover,
+    &:active,
+    &:focus {
+      background-position: -270px -41px;
+    }
 	}
 	.next {
-		right: -80px;
-	}
-}
+		right: -100px;
+		background-position: -229px 0;
 
-.hr {
-	display: inline-block;
-	width: 250px;
-	height: 2px;
-	background: linear-gradient(to right, #f38384 50%, #f8e269 100%);
+		&:hover,
+    &:active,
+    &:focus {
+      background-position: -229px -41px;
+    }
+	}
 }
