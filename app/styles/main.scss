@@ -1,9 +1,11 @@
 // bower:scss
 // endbower
-@import 'fonts.css';
+@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:300,700&subset=latin,cyrillic,cyrillic-ext);
 @import 'variables.scss';
 @import 'gallery.scss';
 @import 'video.scss';
+@import 'music.scss';
+@import 'contacts.scss';
 
 * {
   box-sizing: border-box;
@@ -26,6 +28,11 @@ h3 {
   font-size: $font-size-h3;
   font-weight: bold;
   text-transform: uppercase;
+}
+
+h4 {
+  font-size: $font-size-h4;
+  font-weight: normal;
 }
 
 .pg-canvas {
@@ -95,7 +102,7 @@ h3 {
   }
 }
 
-#about, #gallery, #video {
+#about, #gallery, #video, #music, #contact {
   position: absolute;
   opacity: 0;
   transition: opacity .6s;

@@ -50,16 +50,71 @@
 		var $elem = $(elem),
 				src,
 				$backdrop = $('<div class="backdrop">'),
-				$container;
+				$container,
+				self = this,
+				$target = $elem.find('img');
 
-		src = $elem.is('[data-src]') ? $elem.attr('data-src') : $elem.find('img').attr('src').replace('thumbs', 'photos');
-		$container = $('<div class="fullscreen"><img src="' + src + '"><a href="" class="btn prev"></a><a href="" class="btn next"></a></div>');
+		if($target.is('[data-src]')) {
+			src = $target.attr('data-src');
+			$container = $('<div class="fullscreen w_100"><iframe width="100%" height="100%" src="' + src + '" frameborder="0" allowfullscreen></iframe></div>');
+		}	else {
+			src =  $target.attr('src').replace('thumbs', 'photos');
+			$container = $('<div class="fullscreen"><img src="' + src + '"><a href="" class="btn prev"></a><a href="" class="btn next"></a></div>');
+				this.$currentImage = $elem;
+		}	
+		
 		this.$elem.append($backdrop);
 		this.$elem.append($container);
+		// prev and next buttons click handler
+		$container.find('.next').on('click', function(e) {
+			self.next(e);
+		});
+		$container.find('.prev').on('click', function(e) {
+			self.prev(e);
+		});
 		$backdrop.on('click', function() {
 			$container.remove();
 			$backdrop.remove();
+			this.$currentImage = null;
+			$backdrop.off('click');
 		});
+	};
+
+	Gallery.prototype.next = function(e) {
+		e.preventDefault();
+
+		if(!this.$currentImage.next().length) {
+			var parentSiblings = this.$currentImage.parent('ul').next();
+			if(parentSiblings.length) {
+				this.$currentImage = parentSiblings.find('li').first(); 
+			} else {
+				return;
+			}
+		} else {
+			this.$currentImage = this.$currentImage.next();
+		}
+		
+		var $image = $('.fullscreen > img');
+		var src = this.$currentImage.find('img').attr('src').replace('thumbs', 'photos');
+		$image.attr('src', src);
+	};
+
+	Gallery.prototype.prev = function(e) {
+		e.preventDefault();
+		if(!this.$currentImage.prev().length) {
+			var parentSiblings = this.$currentImage.parent('ul').prev();
+			if(parentSiblings.length) {
+				this.$currentImage = parentSiblings.find('li').last(); 
+			} else {
+				return;
+			}
+		} else {
+			this.$currentImage = this.$currentImage.prev();
+		}
+
+		var $image = $('.fullscreen > img');
+		var src = this.$currentImage.find('img').attr('src').replace('thumbs', 'photos');
+		$image.attr('src', src);
 	};
 
 	Gallery.prototype.addListeners = function() {

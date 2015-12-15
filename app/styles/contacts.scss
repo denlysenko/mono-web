@@ -1,0 +1,42 @@
+#contact {
+	width: 100%;
+	height: 485px;
+
+	.inner {
+		width: 100%;
+		height: 100%;
+		text-align: center;
+	}
+
+	a {
+		color: inherit;
+		text-decoration: none;
+	}
+
+	.email,
+	.phone {
+		position: relative;
+		display: inline-block;
+		padding-left: 40px;
+		margin-bottom: 20px;
+		line-height: 35px;
+
+		&:before {
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: 0;
+			margin-top: -13px;
+			display: inline-block;
+			width: 35px;
+			height: 35px;
+		}
+	}
+	.email:before {
+		background: url(../images/ic_mail.png) no-repeat;
+	}
+	.phone:before {
+		background: url(../images/ic_phone.png) no-repeat;
+	}
+	
+}
