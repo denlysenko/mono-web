@@ -154,12 +154,12 @@
 		this.addListeners();
 	};
 
-	window.onload = function() {
+	window.addEventListener('load', function() {
 		var photoGallery = new Gallery('#gallery', 8);
 		photoGallery.init();
 		var videoGallery = new Gallery('#video', 2);
 		videoGallery.init();
-	};
+	});
 
 	
 
