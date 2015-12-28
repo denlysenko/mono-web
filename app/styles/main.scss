@@ -51,7 +51,11 @@ h4 {
   z-index: 5;
 
   img {
-    transform: translate(0,200%);
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
   }
 }
 
@@ -113,7 +117,7 @@ h4 {
     display: inline-block;
     width: 111px;
     height: 125px;
-    background: url(../images/logo.png) no-repeat;
+    background: url(../images/logo.svg) no-repeat;
   }
 }
 
@@ -148,11 +152,13 @@ nav {
   > a {
     display: block;
     float: left;
+    width: 150px;
     margin-right: 60px;
-    padding: 10px 45px;
+    padding: 10px 0;
     color: $font-color;
     text-transform: uppercase;
     text-decoration: none;
+    text-align: center;
     border: 1px solid transparent;
 
     &:hover,
@@ -166,7 +172,8 @@ nav {
     }
 
     &:nth-of-type(4) {
-      margin-right: 12px;
+      margin-right: 35px;
+      margin-left: -18px;
     }
   }
 }
