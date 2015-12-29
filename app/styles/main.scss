@@ -123,6 +123,7 @@ h4 {
 
 #about, #gallery, #video, #music, #contact {
   position: absolute;
+  margin-top: 80px;
   opacity: 0;
   transition: opacity .6s;
 
@@ -133,7 +134,7 @@ h4 {
 }
 
 .hidden {
-  visibility: hidden;
+  display: none;
 }
 
 nav {
